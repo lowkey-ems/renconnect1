@@ -1,14 +1,9 @@
 import 'package:dartz/dartz.dart';
-import '../core/failure.dart';
-import '../entities/profile.dart';
+import '../entities/user_profile.dart';
 
-abstract class UserRepository {
-  /// Fetch profile by userId
-  Future<Either<Failure, Profile>> getProfile(String userId);
-
-  /// Create or update a profile
-  Future<Either<Failure, Profile>> saveProfile(Profile profile);
-
-  /// Delete profile
-  Future<Either<Failure, void>> deleteProfile(String userId);
+abstract class UserProfileRepository {
+  Future<Either<Exception, UserProfile>> getUserProfile(String userId);
+  Future<Either<Exception, UserProfile>> createUserProfile(UserProfile profile);
+  Future<Either<Exception, UserProfile>> updateUserProfile(UserProfile profile);
+  Future<Either<Exception, bool>> deleteUserProfile(String userId);
 }
